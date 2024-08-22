@@ -1,0 +1,122 @@
+.prod-swipper {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    background-color: #fff; // default background color
+    
+    &:hover {
+        &::before {
+            content: "";
+            cursor: pointer;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            background-color: #000;
+            opacity: 0.7;
+            transition: background-color 0.3s ease;
+            border-radius: 6px;
+        }
+        
+      .product-images-slider-thumbs {
+        display: block; // make thumbnails visible on hover
+        z-index: 101;
+      }
+
+      .product-icons {
+        position: absolute;
+        z-index: 101;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        svg {
+            cursor: pointer;
+        }
+        .view-icon-box {
+            position: relative;
+            .product-view{
+                position: absolute;
+                top: -5px;
+                left: 20px;
+                background-color: rgba(#ff0000, 0.8);
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                z-index: 100;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #000;
+                border-radius: 1px solid black;
+            }
+        }
+      }
+    }
+  }
+
+  .product-icons{
+    display: none;
+  }
+.product-images-slider {
+    border-radius: 10px;
+    .swiper-slide {
+        padding-top: 100%;
+        overflow: hidden;
+        border-radius: 10px;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .swiper-button-prev {
+        left: 0;
+        color: #000;
+    }
+
+    .swiper-button-next {
+        right: 0;
+        color: #000;
+    }
+}
+
+.product-images-slider-thumbs {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    left: 4px;
+    width: 90%;
+    .swiper-slide {
+        cursor: pointer;
+        &-thumb-active {
+            border-color: #ff0000;
+        }
+    }
+
+    &-wrapper {
+        width: 100%;
+        height: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            margin-top: 2px;
+            border-radius: 6px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    
+}
