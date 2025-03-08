@@ -46,13 +46,13 @@ export function HomePage(){
 
   return (
     <div className="homepage">
-      <ProductGrid/>
+      {/* <ProductGrid/>
       <ProductView/>
-      <Exclusive/>
-      <NewDishes />
+      <Exclusive/> */}
+      {/* <NewDishes />
       <Advertisment />
       <ActiveUsers />
-      <Statistics />
+      <Statistics /> */}
     </div>
   );
   }

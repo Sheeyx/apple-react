@@ -8,7 +8,6 @@ import { ProductsPage } from "../screens/productsPage";
 import { OrdersPage } from "../screens/ordersPage/index";
 import UserPage from "../screens/userPage";
 import { HeaderNavbar } from "./components/header/HeaderNavbar";
-import OtherNavbar from "./components/header/OtherNavbar";
 import { Footer } from "./components/footer";
 import "../css/App.css";
 import "../css/navbar.css";
@@ -59,7 +58,6 @@ function App() {
 
   return (
     <>
-      {location.pathname === "/" ? (
         <HeaderNavbar
           cartItems={cartItems}
           onAdd={onAdd}
@@ -73,21 +71,7 @@ function App() {
           handleCloseLogout={handleCloseLogout}
           handleLogoutRequest={handleLogoutRequest}
         />
-      ) : (
-        <OtherNavbar
-          cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}
-          onDelete={onDelete}
-          onDeleteAll={onDeleteAll}
-          setSignupOpen={setSignupOpen}
-          setLoginOpen={setLoginOpen}
-          anchorEl={anchorEl}
-          handleLogoutClick={handleLogOutClick}
-          handleCloseLogout={handleCloseLogout}
-          handleLogoutRequest={handleLogoutRequest}
-        />
-      )}
+     
       <Switch>
         <Route path="/products">
           <ProductsPage onAdd={onAdd} />

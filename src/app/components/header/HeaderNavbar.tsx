@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  IconButton,
   ListItemIcon,
   Menu,
   MenuItem,
@@ -14,6 +15,7 @@ import { serverAPI } from "../../../lib/config";
 import { Logout } from "@mui/icons-material";
 import { useGlobals } from "../../hooks/useGlobals";
 import VideoSlider from "./VideoSlider";
+import MenuIcon from "@mui/icons-material/Menu";
 
 interface HeaderNavbarProps {
     cartItems: CartItem[];
@@ -46,6 +48,14 @@ export function HeaderNavbar(props: HeaderNavbarProps){
     const [count, setCount] = useState(0);
     const [value, setValue] = useState(true);
     const { authMember } = useGlobals();
+    const [open, setOpen] = useState(false);
+
+    const toggleDrawer = (isOpen:any) => (event:any) => {
+      if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
+        return;
+      }
+      setOpen(isOpen);
+    };
 
     useEffect(()=>{
         console.log("ComponentDidMount"); // Data fetch
@@ -69,8 +79,8 @@ export function HeaderNavbar(props: HeaderNavbarProps){
                 className="menu"
             >
                 <Box>
-                    <NavLink  to="/" style={{fontSize: "32px", color: "#000", fontWeight: "400"}}>
-                        <img src="/icons/logo.png" style={{width: "100%", height: "100px", marginTop: "20px"}} alt="" />
+                    <NavLink className={"logo"}  to="/" style={{fontSize: "32px", color: "#000", fontWeight: "400"}}>
+                        <img src="/icons/logo.png" style={{minWidth: "100%", height: "100px", marginTop: "20px"}} alt="" />
                     </NavLink>
                 </Box>
                 <Stack
@@ -105,16 +115,16 @@ export function HeaderNavbar(props: HeaderNavbarProps){
                             Help
                         </NavLink>
                     </Box>
-                    {/* Basket */}
-                    <Basket 
+                </Stack>
+                {/* Basket */}
+                <Basket 
                     cartItems = {cartItems} 
                     onAdd = {onAdd} 
                     onRemove = {onRemove} 
                     onDelete = {onDelete} 
                     onDeleteAll = {onDeleteAll}
-                    
                     />
-                    {!authMember ? (
+                {!authMember ? (
                         <Box>
                             <Button
                             variant="contained"
@@ -178,9 +188,17 @@ export function HeaderNavbar(props: HeaderNavbarProps){
                 Logout
               </MenuItem>
             </Menu>
-                </Stack>
+            <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={toggleDrawer(true)}
+            sx={{ display: { xs: "block", md: "none" } }} // Show only on small screens
+            >
+            <MenuIcon />
+            </IconButton>
             </Stack>
-            <VideoSlider/>
+            {/* <VideoSlider/> */}
         </Container>
     </div>
     )

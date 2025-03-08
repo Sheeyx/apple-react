@@ -30,13 +30,38 @@
     height: 35px;
 }
 
-.home-navbar .navbar-container .menu .links {
-    min-width: 700px;
+.home-navbar .navbar-container .menu .links { 
+    width: 700px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+   
 }
+
+@media (max-width: 1024px) {
+  .home-navbar .navbar-container .menu .links { 
+    display: none;
+  }
+
+  .home-navbar .navbar-container .menu {
+    padding: 0 20px;
+  }
+
+  .logo img {
+    width: 250px;
+    height: 150px;
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+
+
+
+
 
 .home-navbar .navbar-container .menu .links .login-button {
     background: #000;

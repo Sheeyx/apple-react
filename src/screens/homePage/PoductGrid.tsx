@@ -24,31 +24,76 @@ const ProductGrid = () => {
   ];
 
   return (
-    <Container className='product-grid'>
+    <Container className="product-grid" sx={{ py: 4 }}>
       <Grid container spacing={3}>
         {products.map((product, index) => (
-          <Grid item xs={12} md={4} key={index} className='card'>
+          <Grid
+            item
+            xs={12} // Full width on small screens
+            sm={6} // Half width on tablets
+            md={4} // One-third width on medium to large screens
+            key={index}
+            className="card"
+          >
             <Box
               sx={{
                 backgroundColor: product.backgroundColor,
                 padding: 3,
                 borderRadius: 2,
                 textAlign: 'center',
-                display: "flex",
-                position: "relative",
-                height: "220px",
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row' }, // Stack content on small screens
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                position: 'relative',
+                height: { xs: 'auto', md: '220px' }, // Adjust height based on screen size
               }}
             >
-                <Box mt={6}>
-                    <Typography variant="h3" component="div" sx={{ fontWeight: 'bold', mb: 1 }}>
-                        {product.title}
-                    </Typography>
-                    <Typography variant="body1" component="div" sx={{ mb: 2, fontWeight: "bold" }}>
-                        {product.price}
-                    </Typography>
-                </Box>
-              
-                <img className='img' src={product.image} alt={product.title} />
+              <Box sx={{ textAlign: { xs: 'center', sm: 'left' }, flex: 1 }}>
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{
+                    fontWeight: 'bold',
+                    mb: 1,
+                    fontSize: { xs: '1.2rem', md: '1.5rem' }, // Adjust font size for different screens
+                  }}
+                >
+                  {product.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  component="div"
+                  sx={{
+                    mb: 2,
+                    fontWeight: 'bold',
+                    fontSize: { xs: '1rem', md: '1.2rem' }, // Adjust font size
+                  }}
+                >
+                  {product.price}
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  mt: { xs: 2, sm: 0 },
+                  flexShrink: 0,
+                }}
+              >
+                <img
+                  className="img"
+                  src={product.image}
+                  alt={product.title}
+                  style={{
+                    width: '100%',
+                    maxWidth: '120px', // Control image size
+                    height: 'auto',
+                    objectFit: 'contain',
+                  }}
+                />
+              </Box>
             </Box>
           </Grid>
         ))}
