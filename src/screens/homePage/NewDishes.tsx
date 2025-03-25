@@ -30,7 +30,7 @@ export default function Watches() {
     };
     return (
         <Stack className='watch-main'>
-          <Stack>
+          <Stack className='banner'>
             <img src="/img/newwatch.webp" alt="fdsf" />
           </Stack>
           <div className='views'>

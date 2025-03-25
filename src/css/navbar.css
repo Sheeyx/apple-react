@@ -8,6 +8,7 @@
 .home-navbar .navbar-container {
     margin-top: 55px;
     height: 642px;
+    z-index: 1000;
 }
 
 .home-navbar .navbar-container .menu {

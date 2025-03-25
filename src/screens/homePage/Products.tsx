@@ -92,9 +92,9 @@ export default function ProductView() {
       </Stack>
 
       {/* Products Section */}
-      <Grid container spacing={3} className="views" sx={{ mt: 4 }}>
+      <Grid container spacing={3} className="views">
         {data?.map((item: any, index: number) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid className='cards' item xs={12} sm={6} md={3} key={index}>
             <ProductImagesSlider images={item} />
           </Grid>
         ))}

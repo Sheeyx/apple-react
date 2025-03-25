@@ -208,6 +208,7 @@
     align-items: center;
     font-weight: 500;
   }
+
   .homepage .new-products-frame .no-data {
     width: 100%;
     height: 300px;
@@ -248,10 +249,9 @@
   /* ACTIVE USERS */
 /* Base styles */
 .homepage .active-users-frame {
-  width: 100%;
-  height: 550px;
   background: linear-gradient(to bottom, #f8f8ff 0%, #e3e3f0 100%); /* Subtle background gradient */
   display: flex;
+  padding: 40px 0;
 }
 
 .homepage .active-users-frame .main {
@@ -271,6 +271,8 @@
 }
 
 .homepage .cards-frame {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   margin-top: 20px;
   flex-direction: row;
@@ -279,12 +281,14 @@
 
 .homepage .cards-frame .card {
   margin: 5px;
-  min-height: 305px;
-  min-width: 305px;
+  min-height: 300px;
+  min-width: 300px;
   cursor: pointer;
   border: 1px solid #ddd; /* Subtle border */
   border-radius: 5px; /* Rounded corners */
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
 
 .homepage .cards-frame .member-nickname {
@@ -546,21 +550,36 @@
     justify-content: space-between;
   }
 
+  @media (max-width: 900px) {
+    .homepage .product-main .views .cards {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   .homepage .exclusive-collection {
-    height: 700px;
     background-color: #fcfbfe;
     position: relative;
   }
 
   .homepage .exclusive-collection .main {
     padding-top: 80px;
+    z-index: 100;
   }
 
-  .homepage .exclusive-collection .main .time-box {
+  .homepage .exclusive-collection .main .box {
+    z-index: 100;
+  }
+
+  .homepage .exclusive-collection .images img{
+    z-index: 1;
+  }
+
+  .homepage .exclusive-collection .time-box {
     display: flex;
+    background-color: #333;
     margin: 30px 0;
     width: 700px;
-    height: 110px;
     justify-content: space-between;
     padding: 10px 60px;
     flex-direction: row;
@@ -572,55 +591,54 @@
     border-radius: 200px;
   }
 
-  .homepage .exclusive-collection .main .time-box {
-    display: flex;
-    margin: 30px 0;
-    width: 700px;
-    height: 110px;
-    justify-content: space-between;
-    padding: 10px 60px;
-    flex-direction: row;
-    background-color: #333333;
-    color: #fff;
-    font-size: 32px;
-    align-items: center;
-    text-align: center;
-    border-radius: 200px;
+  @media (max-width: 700px) {
+    .homepage .exclusive-collection .time-box {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+    }
   }
+
+
 
   .homepage .exclusive-collection .main .ipad {
     position: absolute;
     bottom: -100px;
-    left: 0;
   }
 
   .homepage .exclusive-collection .main .ipad {
     position: absolute;
     bottom: -50px;
-    left: 200px;
+    left: 20px;
     width: 400px;
   }
 
   .homepage .exclusive-collection .main .iphone {
     position: absolute;
-    top: 100px;
+    top: 0px;
     left: -300px;
     transform: rotate(45deg);
   }
 
   .homepage .exclusive-collection .main .iwatch {
     position: absolute;
-    top: 100px;
-    right: 50px;
-    width: 300px;
+    top: 10px;
+    right: 100px;
+    width: 200px;
   }
 
   .homepage .exclusive-collection .main .airpods {
     position: absolute;
-    bottom: 100px;
-    right: 300px;
+    bottom: 10px;
+    right: 100px;
     width: 200px;
     transform: rotate(45deg);
+  }
+
+  @media (max-width: 1400px) {
+    .homepage .exclusive-collection img {
+      display: none;
+    }
   }
 
   .homepage .watch-main {
@@ -642,6 +660,24 @@
   .homepage .watch-main .views .prod-swipper {
     width: 200px !important;
     height: 200px !important;
+  }
+
+  @media (max-width: 1200px) {
+    .homepage .watch-main {
+      padding: 0 20px;
+      display: flex;
+    }
+
+    .homepage .watch-main .banner {
+      display: none;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .homepage .watch-main .views{
+      display: flex;
+      justify-content: center;
+    }
   }
 
   .homepage .product-grid .img {

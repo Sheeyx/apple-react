@@ -198,7 +198,7 @@ export function HeaderNavbar(props: HeaderNavbarProps){
             <MenuIcon />
             </IconButton>
             </Stack>
-            {/* <VideoSlider/> */}
+            <VideoSlider/>
         </Container>
     </div>
     )
