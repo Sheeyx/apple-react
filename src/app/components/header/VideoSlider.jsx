@@ -28,13 +28,13 @@ const VideoSlider = () => {
       navigation={true}
       modules={[Navigation, Pagination, Autoplay]}
       className="mySwiper"  
-      style={{marginTop: "30px"}}
+      style={{marginTop: "30x"}}
     >
       {videos.map((video) => (
         <SwiperSlide key={video.id}>
           <div className="video-container">
             {video.type === 'local' ? (
-              <video autoPlay muted loop style={{height:"80vh",width: "90%", marginLeft: "70px"}}>
+              <video autoPlay muted loop style={{width: "100%", marginTop: "50px", maxHeight: "100vh"}}>
                 <source src={video.url} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>

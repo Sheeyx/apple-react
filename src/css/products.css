@@ -6,6 +6,10 @@
   }
   
   /** Products **/
+
+  .products img {
+    margin-top: 50px;
+  }
   
   .products-page .products {
     width: 100%;
@@ -28,17 +32,16 @@
   .products-page .products .top-text {
     position: relative;
     width: 100%;
-    height: 43px;
     margin-top: 80px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
   }
   
   .products-page .products .top-text p {
     position: relative;
-    margin-left: 380px;
     font-family: "Dancing Script";
     font-style: normal;
     font-weight: 700;
@@ -47,11 +50,12 @@
     color: #343434;
   }
   
-  .products-page .products .single-search-big-box {
+  .products .single-search-big-box {
     position: relative;
-    width: 337px;
+    width: 100%;
     height: 33px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     background: #fffcfc;
@@ -89,7 +93,8 @@
   }
   
   .products-page .products .single-button-search {
-    position: relative;
+    position: absolute;
+    right: 0;
     width: 100px;
     height: 33px;
     color: #d7b586;
@@ -429,6 +434,10 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .products-page .products .address .address-area iframe{
+    max-width: 100%;
+  }
   
   .products-page .products .address .title {
     font-family: "Dancing Script";
@@ -591,12 +600,28 @@
   padding: 20px;
 }
 
-.products-page .chosen-product .product-container {
+.products .product-container {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 80px 0 150px 0;
   width: 100%;
+}
+
+@media (max-width: 900px) {
+  .products .product-container {
+    flex-direction: column-reverse !important;
+  }
+
+  .products .product-list-left {
+    width: 80% !important;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .products-page .product-list-right {
+    margin: 0 auto;
+  }
 }
 
 .products-page .chosen-product .chosen-product-slider {
@@ -759,6 +784,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .products-page .product-list .new-arrival {
@@ -776,7 +802,7 @@
 
   
 
-  .products-page .product-list-left {
+  .products .product-list-left {
     width: 20%;
     margin-top: 25px;
   }

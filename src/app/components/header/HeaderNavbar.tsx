@@ -198,7 +198,6 @@ export function HeaderNavbar(props: HeaderNavbarProps){
             <MenuIcon />
             </IconButton>
             </Stack>
-            <VideoSlider/>
         </Container>
     </div>
     )

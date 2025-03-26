@@ -167,7 +167,7 @@ export default function Products(props: ProductsProps) {
             />
           </Stack>
               </Stack>
-              <div className="product-list-left">
+              <Stack className="product-list-left">
                 <Stack className={"single-search-big-box"}>
                   <input
                     type={"search"}
@@ -225,7 +225,7 @@ export default function Products(props: ProductsProps) {
                     Views
                   </Button>
                 </Stack>
-              </div>
+              </Stack>
           </Stack>
 
           

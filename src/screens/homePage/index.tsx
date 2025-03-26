@@ -17,6 +17,7 @@ import ProductView from "./Products";
 import Exclusive from "./Exclusive";
 import MemberService from "../../app/services/MemberService";
 import ProductGrid from "./PoductGrid";
+import VideoSlider from "../../app/components/header/VideoSlider";
 
 // REDUX SLICE & SELECTOR
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -46,6 +47,7 @@ export function HomePage(){
 
   return (
     <div className="homepage">
+      <VideoSlider/>
       <ProductGrid/>
       <ProductView/>
       <Exclusive/>
