@@ -16,6 +16,7 @@ import { Logout } from "@mui/icons-material";
 import { useGlobals } from "../../hooks/useGlobals";
 import VideoSlider from "./VideoSlider";
 import MenuIcon from "@mui/icons-material/Menu";
+import Logo from "../../../assets/icons/logos.svg";
 
 interface HeaderNavbarProps {
     cartItems: CartItem[];
@@ -49,13 +50,10 @@ export function HeaderNavbar(props: HeaderNavbarProps){
     const [value, setValue] = useState(true);
     const { authMember } = useGlobals();
     const [open, setOpen] = useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
-    const toggleDrawer = (isOpen:any) => (event:any) => {
-      if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
-        return;
-      }
-      setOpen(isOpen);
-    };
+    const toggleDrawer = () => setMobileOpen(prev => !prev);
+  
 
     useEffect(()=>{
         console.log("ComponentDidMount"); // Data fetch
@@ -79,12 +77,12 @@ export function HeaderNavbar(props: HeaderNavbarProps){
                 className="menu"
             >
                 <Box>
-                    <NavLink className={"logo"}  to="/" style={{fontSize: "32px", color: "#000", fontWeight: "400"}}>
-                        <img src="/icons/logo.png" style={{minWidth: "100%", height: "100px", marginTop: "20px"}} alt="" />
+                    <NavLink className={"logo"}  to="/">
+                        <img src={Logo} alt="" />
                     </NavLink>
                 </Box>
                 <Stack
-                    className="links"
+                    className={`mobile-links ${mobileOpen ? 'active' : ''}`}
                 >
                     <Box className = {"hover-line"}>
                         <NavLink  to="/" activeClassName = {"underline"}>
@@ -192,10 +190,10 @@ export function HeaderNavbar(props: HeaderNavbarProps){
             edge="start"
             color="inherit"
             aria-label="menu"
-            onClick={toggleDrawer(true)}
-            sx={{ display: { xs: "block", md: "none" } }} // Show only on small screens
+            className="burger"
+            onClick={toggleDrawer}
             >
-            <MenuIcon />
+                <MenuIcon />
             </IconButton>
             </Stack>
         </Container>
